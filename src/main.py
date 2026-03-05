@@ -1,7 +1,9 @@
 #src/main.py
 import curses
+import entity_factory
 from grid import Grid
 from entity import Entity, Stats
+
 from renderer import render, render_debug
 from input import handle_input
 
@@ -13,6 +15,7 @@ def main(stdscr):
     grid = Grid(20, 10)
     player = Entity(1, 1, '@', (255,255,255))
     player.components["stats"] = Stats(5, 5, 5, 2)
+    player.components["body"] = entity_factory.create_humanoid_body()
 
 
 

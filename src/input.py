@@ -1,9 +1,6 @@
 # src/input.py
 import curses
 
-
-
-
 def handle_input(key, player, grid):
     dx, dy = 0, 0
     if key == curses.KEY_UP:

@@ -7,4 +7,5 @@ def render(stdscr, grid, player):
 
 def render_debug(stdscr, player):
 #will change to be agnostic in future
-    stdscr.addstr(15,0, f"{player.components.get('stats')}")
+    stdscr.addstr(14,0, f"{player.components.get('stats')}")
+    stdscr.addstr(15, 0, f"{player.components.get('body')}")
