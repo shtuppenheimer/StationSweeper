@@ -12,12 +12,15 @@ class Entity:
 #components (to be moved later)
 class Stats:
     def __init__(self, health, strength, defence, action_points):
-        self.health = health
-        self.strength =  strength
-        self.defence = defence
-        self.action_points = action_points
+        self.values = {
+            "Health": health,
+            "STR": strength,
+            "DEF": defence,
+            "AP": action_points
+        }
+        
     def __repr__(self):
-        return f"Stats: health: {self.health}, strength: {self.strength}, defence: {self.defence}, action points: {self.action_points}"   
+        return f"Stats: {self.values}"   
 
 
 class AI:
