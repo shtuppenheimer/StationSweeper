@@ -12,6 +12,7 @@ def main(stdscr):
     stdscr.nodelay(False)
     stdscr.keypad(True)
 
+    #Setup scene and player(will move this soon)
     grid = Grid(20, 10)
     player = Entity(1, 1, '@', (255,255,255))
     player.components["stats"] = Stats(5, 5, 5, 2)
@@ -26,12 +27,14 @@ def main(stdscr):
         render_debug(stdscr, player)
         stdscr.refresh()
 
+        #lazy input handling(will fix later)
         key = stdscr.getch()
         if key == ord('q'):
             break
         if key == ord('a'):
-            entity_factory.add_mutation_to_body(player.components['body'])
-            render_debug(stdscr, player)
+            entity_factory.add_mutation_to_body(player)
+
+        #movement handling
         handle_input(key, player, grid)
 
 curses.wrapper(main)

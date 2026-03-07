@@ -40,4 +40,4 @@ class DermaMax(Mutations):
             description= "Subject grows a thicker epidermal layer"                  
         )
     def modify_stats (self, entity,):
-        super().modify_stats(entity= entity, stat_to_change= "defence", bonus= 2)
+        super().modify_stats(entity= entity, stat_to_change= "DEF", bonus= 2)

@@ -5,6 +5,7 @@ import modification_factory
 
 #enums
 class PartTypes(Enum):
+    """Enum class containing body part types"""
     #will add hands and feet later if i feel like it
     HEAD = auto()
     TORSO = auto()
@@ -12,6 +13,8 @@ class PartTypes(Enum):
     LEG = auto()
 
 class Body:
+    """Every actor entity will have a body, this body is a series of Lists which hold an actors current parts, 
+    mutations, enhancements and augmentations"""
     def __init__(self, ):
         self.parts = []
         self.mutations = []
@@ -29,6 +32,7 @@ class Body:
                 f"BioEnhancements={bio})")
 
 class BodyParts:
+    """Body parts are objects stored on an actors body, they allow for extra equipslots and other such statistics boosts"""
     def __init__(self, part_name, part_type):
         self.part_name = part_name
         self.part_type = part_type
@@ -36,8 +40,9 @@ class BodyParts:
 
 
 
-
+#lazy template creator
 def create_humanoid_body():
+
     body = Body()
     body.parts.append(BodyParts("Head", PartTypes.HEAD))
     body.parts.append(BodyParts("Torso", PartTypes.TORSO))
@@ -47,5 +52,10 @@ def create_humanoid_body():
     body.parts.append(BodyParts("Right Leg", PartTypes.LEG))
     return body
 
-def add_mutation_to_body(body):
-    body.mutations.append(modification_factory.DermaMax())
+#lazy mutation tester
+def add_mutation_to_body(entity):
+    mutation = modification_factory.DermaMax()
+
+    entity.components["body"].mutations.append(mutation)
+
+    mutation.modify_stats(entity)
