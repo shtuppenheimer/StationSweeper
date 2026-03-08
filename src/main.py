@@ -1,9 +1,10 @@
 #src/main.py
 import curses
 import entity_factory
+import data
 from grid import Grid
-from entity import Entity, Stats
-
+from entity import Entity, Stats, Actor
+from utils import update_stats
 from renderer import render, render_debug
 from input import handle_input
 
@@ -14,9 +15,9 @@ def main(stdscr):
 
     #Setup scene and player(will move this soon)
     grid = Grid(20, 10)
-    player = Entity(1, 1, '@', (255,255,255))
+    player = Actor(1, 1, '@', (255, 255, 255), body_data=data.BODY_TEMPLATES["humanoid"])
     player.components["stats"] = Stats(5, 5, 5, 2)
-    player.components["body"] = entity_factory.create_humanoid_body()
+
     
 
 
@@ -32,8 +33,15 @@ def main(stdscr):
         if key == ord('q'):
             break
         if key == ord('a'):
-            entity_factory.add_mutation_to_body(player)
-
+            for part in player.body:
+                if part["part_id"] == "arm" and part["mod_id"] is None:
+                    part["mod_id"] = "muscle_max"
+                    break
+            update_stats(player) # <-- This is INSIDE the loop!
+        #stupid teleport thing i added.
+        if key == ord('t'):
+            player.move(5, 5, grid)
+  
         #movement handling
         handle_input(key, player, grid)
 

@@ -8,4 +8,7 @@ def render(stdscr, grid, player):
 def render_debug(stdscr, player):
 #will change to be agnostic in future
     stdscr.addstr(13,0, f"{player.components.get('stats')}")
-    stdscr.addstr(14, 0, f"{player.components.get('body')}")
+    anatomy_list = [f"{p['part_id']}({p['mod_id'] if p['mod_id'] else 'Clean'})" for p in player.body]
+
+
+    stdscr.addstr(14, 0, f"Body: {', '.join(anatomy_list)}")
