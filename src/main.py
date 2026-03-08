@@ -41,6 +41,8 @@ def main(stdscr):
         #stupid teleport thing i added.
         if key == ord('t'):
             player.move(5, 5, grid)
+
+            
   
         #movement handling
         handle_input(key, player, grid)

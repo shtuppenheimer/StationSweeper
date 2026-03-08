@@ -52,19 +52,19 @@ MOD_REGISTRY = {
 
 BODY_TEMPLATES = {
     "humanoid": [
-        {"part_id": "head",  "mod_id": None},
-        {"part_id": "torso", "mod_id": None},
-        {"part_id": "arm",   "mod_id": None},
-        {"part_id": "arm",   "mod_id": None},
-        {"part_id": "leg",   "mod_id": None},
-        {"part_id": "leg",   "mod_id": None},
+        {"part_id": "head",  },
+        {"part_id": "torso", },
+        {"part_id": "arm",   },
+        {"part_id": "arm",   },
+        {"part_id": "leg",   },
+        {"part_id": "leg",   },
     ],
     "dog": [
-        {"part_id": "head",  "mod_id": None},
-        {"part_id": "torso", "mod_id": None},
-        {"part_id": "leg",   "mod_id": None},
-        {"part_id": "leg",   "mod_id": None},
-        {"part_id": "leg",   "mod_id": None},
-        {"part_id": "leg",   "mod_id": None},
+        {"part_id": "head",  },
+        {"part_id": "torso", },
+        {"part_id": "leg",   },
+        {"part_id": "leg",   },
+        {"part_id": "leg",   },
+        {"part_id": "leg",   },
     ]
 }
